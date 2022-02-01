@@ -16,6 +16,6 @@ workflows:
 
       - docker/publish:
           name: Build and Publish to Docker Hub
-          image: thinxcloud/redus
+          image: thinxcloud/redis
           context:
             - dockerhub
