@@ -11,10 +11,8 @@ ENV ALLOW_EMPTY_PASSWORD=${ALLOW_EMPTY_PASSWORD}
 ARG REDIS_DISABLE_COMMANDS=FLUSHALL
 ENV REDIS_DISABLE_COMMANDS=${REDIS_DISABLE_COMMANDS}
 
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -qq -y ca-certificates apt-transport-https cron && \
-    rm -rf /etc/apt/sources.list && \
-    apt-get update
+RUN apk update \
+  && apk add ca-certificates apt-transport-https cron
 
 # adduser --system --disabled-password --shell /bin/bash redis
 
