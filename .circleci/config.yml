@@ -2,17 +2,17 @@ version: 2.1
 
 orbs: 
   docker: circleci/docker@2.8.0
-#  ggshield: gitguardian/ggshield@1.1.4
+  ggshield: gitguardian/ggshield@1.1.4
 
 workflows:
   build-and-publish:
     jobs:
-      # - ggshield/scan:
-      #     name: Scan using Gitguardian shield
-      #     base_revision: <<pipeline.git.base_revision>>
-      #     revision: <<pipeline.git.revision>>
-      #     context:
-      #       - gitguardian
+      - ggshield/scan:
+          name: Scan using Gitguardian shield
+          base_revision: <<pipeline.git.base_revision>>
+          revision: <<pipeline.git.revision>>
+          context:
+            - gitguardian
 
       - docker/publish:
           name: Build and Publish to Docker Hub
