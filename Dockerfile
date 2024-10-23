@@ -12,7 +12,7 @@ ARG REDIS_DISABLE_COMMANDS=FLUSHALL
 ENV REDIS_DISABLE_COMMANDS=${REDIS_DISABLE_COMMANDS}
 
 RUN apk update \
-  && apk add ca-certificates apt-transport-https cron
+    && apk add ca-certificates apk-cron
 
 # adduser --system --disabled-password --shell /bin/bash redis
 
