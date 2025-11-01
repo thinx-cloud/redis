@@ -1,6 +1,4 @@
-# test commit
-
-FROM redis:6-alpine
+FROM redis:8.2.2-alpine
 
 LABEL name="thinxcloud/redis" version="1.5.101"
 
