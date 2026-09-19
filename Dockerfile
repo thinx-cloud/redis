@@ -2,8 +2,10 @@ FROM redis:8.6.3-alpine3.23
 
 LABEL name="thinxcloud/redis" version="1.5.101"
 
-ARG REDIS_PASSWORD
-ENV REDIS_PASSWORD=${REDIS_PASSWORD}
+# REDIS_PASSWORD is deliberately not declared here. This is a single-stage
+# build, so an ENV would be baked into the published (public) thinxcloud/redis
+# image. docker-entrypoint.sh reads it from the container environment at start
+# time, supplied by docker-compose `environment:`.
 
 ARG ALLOW_EMPTY_PASSWORD=no
 ENV ALLOW_EMPTY_PASSWORD=${ALLOW_EMPTY_PASSWORD}

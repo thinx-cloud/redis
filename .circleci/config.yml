@@ -17,5 +17,10 @@ workflows:
       - docker/publish:
           name: Build and Publish to Docker Hub
           image: thinxcloud/redis
+          # Publish only from main. Without this the job runs on every branch,
+          # so any feature-branch push overwrites the production :latest tag.
+          filters:
+            branches:
+              only: main
           context:
             - dockerhub
