@@ -1,4 +1,4 @@
-FROM redis:8.6.3-alpine3.23
+FROM redis:8.6.6-alpine3.23
 
 LABEL name="thinxcloud/redis" version="1.5.101"
 
